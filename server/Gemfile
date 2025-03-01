@@ -1,0 +1,44 @@
+source "https://rubygems.org"
+
+gem 'sinatra', '~> 3.2'
+
+# A fast and simple web server
+gem 'thin', '~> 1.8', '>= 1.8.2'
+gem 'rack', '~> 2.2', '>= 2.2.9'
+
+# Rack middleware used for parsing the request body into params.
+gem 'rack-contrib', '~> 2.5'
+
+# Rack middleware
+gem 'rack-cors', '~> 2.0', '>= 2.0.2'
+
+# An object-relational mapper
+gem 'activerecord', '~> 7.2', '>= 7.2.1'
+
+# Configures common Rake tasks for working with Active Record
+gem 'sinatra-activerecord', '~> 2.0', '>= 2.0.27'
+
+# Run common tasks from the command line
+gem 'rake', '~> 13.2', '>= 13.2.1'
+
+# Provides functionality to interact with a SQLite3 database
+gem 'sqlite3', '~> 2.1'
+
+# Require all files in a folder
+gem 'require_all', '~> 3.0'
+
+# These gems used when running the application locally
+group :development do
+  gem 'pry', '~> 0.14.2'
+
+  # Automatically reload when there are changes
+  gem "rerun"
+end
+
+# These gems used when running tests
+group :test do
+  gem 'database_cleaner', '~> 2.0', '>= 2.0.2'
+  gem 'rack-test', '~> 2.1'
+  gem 'rspec', '~> 3.13'
+  gem 'rspec-json_expectations', '~> 2.2'
+end

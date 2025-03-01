@@ -1,0 +1,23 @@
+require_relative "./config/environment"
+require "sinatra/activerecord/rake"
+
+desc "Start the server"
+task :server do
+  # Use a compatible method to check for pending migrations
+  if ActiveRecord::Migrator.respond_to?(:needs_migration?) && ActiveRecord::Migrator.needs_migration?
+    puts "Migrations are pending. Make sure to run `rake db:migrate` first."
+    return
+  end
+
+  ENV["PORT"] ||= "9292"
+  rackup = "rackup -p #{ENV['PORT']}"
+
+  exec "bundle exec rerun -b '#{rackup}'"
+end
+
+desc "Start the console"
+task :console do
+  ActiveRecord::Base.logger = Logger.new(STDOUT)
+  Pry.start
+end
+
