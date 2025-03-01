@@ -1,7 +1,3 @@
-## CISC 0683 Final Project
-- Elizabeth Fassler
-- NSU ID: N02245123
-
 ## Chat Gems App
 
 ### Introduction
